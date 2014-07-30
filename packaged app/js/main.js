@@ -19,8 +19,10 @@ function init() {
   function openWindow(path){
     chrome.system.display.getInfo(function(d){
       chrome.app.window.create(path, {
-        'frame': 'none',
+        //'frame': 'none',
+        'state': 'fullscreen',
         'id': 'browser',
+	//'alwaysOnTop': true, /*GEORGE */
         'bounds':{
            'left':0,
            'top':0,
@@ -28,7 +30,7 @@ function init() {
            'height':d[0].bounds.height
         }
       },function(w){
-        w.fullscreen();
+//        w.fullscreen();
       });
     });
   }
